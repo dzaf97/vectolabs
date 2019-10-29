@@ -3,6 +3,7 @@ import 'searchItemWindow.dart';
 import 'getItemWindow.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
             margin: const EdgeInsets.all(5.0),
             child: Text(
               'Welcome to Family Mart!',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
           ),
@@ -78,26 +79,23 @@ class MyApp extends StatelessWidget {
           ButtonBar(
             alignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              RaisedButton(
+              // For IOS
+              CupertinoButton(
+                padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
                 child: Text(
                   'Get all items',
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                 ),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                color: Colors.green[200],
-                onPressed: () {
-                  Navigator.pushNamed(context, '/show');
-                },
+                color: Colors.blue,
+                onPressed: () => Navigator.pushNamed(context, '/show'),
               ),
-              RaisedButton(
+              CupertinoButton(
+                padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
                 child: Text(
                   'Search',
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                 ),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                color: Colors.green[200],
+                color: Colors.blue,
                 onPressed: () {
                   if (searchController.text != '') {
                     return Navigator.pushNamed(context, '/search');
